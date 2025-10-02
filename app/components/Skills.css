@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css?family=Exo:700');
+@import url('https://fonts.googleapis.com/css?family=Abel');
+
+.skills-section {
+  background: rgba(0, 0, 0, 0.4); /* semi-transparent black */
+  color: #fff;
+  padding: 50px 20px;
+  font-family: 'Abel', sans-serif;
+  /* blur effect */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  /* subtle fade-in animation */
+  opacity: 0;
+  animation: fadeIn 1s forwards;
+}
+
+/* Fade-in keyframes */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Title */
+.skills-title {
+  text-align: center;
+  margin-bottom: 25px;
+}
+.skills-title h1 {
+  font-size: 50px;
+  font-family: 'Exo', sans-serif;
+  letter-spacing: 2px;
+}
+
+/* Container */
+.skills-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  perspective: 1000px;
+  margin-bottom: 20px;
+}
+
+/* Cards */
+.skill-card {
+  text-align: center;
+  width: 20%; /* decreased width for desktop */
+  min-width: 180px; /* ensures mobile responsiveness */
+  height: 180px; /* slightly smaller */
+  border-radius: 15px;
+  transition: 0.6s;
+  box-shadow: 0px 15px 40px rgba(0, 0, 0, 0.5);
+  transform: rotateX(75deg) translateY(-120px) translateZ(-60px);
+}
+
+.skill-card:hover {
+  transform: rotateX(0deg);
+  transition: 0.6s;
+  box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.3);
+}
+
+/* Card Images */
+.skill-card img {
+  margin-top: 15px;
+  width: 80px; /* smaller image */
+  height: 80px;
+  object-fit: contain;
+}
+
+/* Headings */
+.skill-card h3 {
+  font-size: 20px; /* slightly smaller */
+  font-family: 'Exo', sans-serif;
+  margin: 10px 0;
+}
+
+/* Paragraph */
+.skill-card p {
+  padding: 0 0px;
+  font-size: 12px;
+  color: #eaeaea;
+}
+
+/* Card Gradients (transparent for dark background) */
+.card1, .card2, .card3, .card4, .card5, .card6 {
+  background: linear-gradient(135deg, transparent, transparent);
+}
+
+/* Footer */
+.skills-footer {
+  text-align: center;
+  margin-top: 20px;
+}
+.skills-footer h2 {
+  font-size: 18px;
+  font-family: 'Exo', sans-serif;
+  color: #bbb;
+}
+
+/* Responsive */
+@media screen and (max-width: 900px) {
+  .skill-card {
+    width: 45%; /* 2 per row on tablet */
+  }
+}
+@media screen and (max-width: 600px) {
+  .skill-card {
+    width: 100%; /* 1 per row on mobile */
+ 
+  }
+  .skills-container
+  {
+    margin-top: 30px;
+  }
+}

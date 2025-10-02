@@ -1,26 +1,20 @@
 @import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* Custom global styles */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap");
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #000000;
+  color: #ffffff; /* Cream color */
+  font-family: 'Poppins', 'Arial', sans-serif;  /* Poppins font */
+}
+
+@layer utilities {
+  .perspective {
+    perspective: 1000px;
+  }
+  .rotate-x-12 {
+    transform: rotateX(12deg);
+  }
+  .rotate-y-6 {
+    transform: rotateY(6deg);
+  }
 }
