@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { useState } from "react";
+import UiverseButton from './UiverseButton'; // Import the new button
 
 export default function HomeHero() {
   const [flipped, setFlipped] = useState(false);
@@ -21,8 +22,13 @@ export default function HomeHero() {
           style={{ transformStyle: "preserve-3d" }}
         >
           {/* Front Side */}
-          <div className="italic absolute p-6 w-full h-full flex items-center justify-center rounded-[50px] bg-black/50 backdrop-blur-md text-white text-2xl sm:text-3xl md:text-4xl font-bold  backface-hidden neon-border">
-            Heyy, SMASH HERE !!
+          <div className="italic absolute p-6 w-full h-full flex items-center justify-center rounded-[50px] bg-black/50 backdrop-blur-md text-white text-2xl sm:text-3xl md:text-4xl font-bold   backface-hidden neon-border">
+            
+            <div className="flex items-center gap-3">
+              {/* --- The text for the button has been changed here --- */}
+              <UiverseButton text="Click me ?"  />
+            </div>
+
           </div>
 
           {/* Back Side */}
@@ -46,19 +52,17 @@ export default function HomeHero() {
                 with clean design and robust code.
               </p>
 
-              <div className="mt-8 flex flex-col sm:flex-row gap-4 w-full sm:w-auto justify-center md:justify-start">
+               <div className="mt-8 flex flex-col sm:flex-row gap-4 w-full sm:w-auto justify-center md:justify-start">
+                {/* --- THIS BUTTON'S HOVER EFFECT HAS BEEN CHANGED --- */}
                 <a
-                  href="#projects"
-                  className="px-6 py-3 bg-white text-black font-semibold rounded-full hover:bg-gray-200 transition duration-300 text-sm sm:text-base"
+                  href="/resume.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-6 py-3 bg-white text-black font-semibold rounded-full border-2 border-transparent hover:bg-transparent hover:text-white hover:border-white transition duration-300 text-sm sm:text-base"
                 >
-                  View My Work
+                  View My Resume
                 </a>
-                <a
-                  href="#contact"
-                  className="px-6 py-3 border border-white text-white font-semibold rounded-full hover:bg-white hover:text-black transition duration-300 text-sm sm:text-base"
-                >
-                  Hire Me
-                </a>
+               
               </div>
             </motion.div>
 
@@ -94,12 +98,13 @@ export default function HomeHero() {
           backface-visibility: hidden;
         }
         .neon-border {
-     box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.3);
-          
+          box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.3);
           animation: neonGlow 2s infinite alternate;
         }
-       
+
+     
       `}</style>
     </section>
   );
 }
+

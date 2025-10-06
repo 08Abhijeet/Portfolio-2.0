@@ -63,7 +63,7 @@ export default function Navbar() {
         
         {/* ... (rest of the component is unchanged) ... */}
         <div className="flex md:hidden flex-1 justify-end">
-          <button onClick={() => setIsOpen(!isOpen)} className="text-white focus:outline-none text-3xl" aria-label="Toggle Menu">
+          <button onClick={() => setIsOpen(!isOpen)} className="text-white focus:outline-none text-3xl z-50" aria-label="Toggle Menu">
             {isOpen ? "✕" : "☰"}
           </button>
         </div>

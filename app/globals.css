@@ -6,7 +6,15 @@ body {
   color: #ffffff; /* Cream color */
   font-family: 'Poppins', 'Arial', sans-serif;  /* Poppins font */
 }
+html {
+  scroll-behavior: smooth;
+}
 
+/* --- ADD THIS NEW RULE --- */
+/* This creates an offset for the fixed navbar when scrolling to sections */
+section[id] {
+  scroll-margin-top: 4rem; /* Adjust this value as needed */
+}
 @layer utilities {
   .perspective {
     perspective: 1000px;
