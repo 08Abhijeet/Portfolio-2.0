@@ -1,26 +1,32 @@
 "use client";
+import React from "react"; // --- THIS LINE WAS ADDED ---
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from 'next/navigation';
 import "./Navbar.css";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [activeLink, setActiveLink] = useState<string>('about');
+  const pathname = usePathname();
 
   useEffect(() => {
-    const sections = document.querySelectorAll('section[id]');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          setActiveLink(entry.target.id);
-        }
-      });
-    }, { rootMargin: '-30% 0px -70% 0px' });
-    sections.forEach(section => observer.observe(section));
-    return () => sections.forEach(section => observer.unobserve(section));
-  }, []);
+    // Only run the scrollspy if we are on the homepage
+    if (pathname === '/') {
+      const sections = document.querySelectorAll('section[id]');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            setActiveLink(entry.target.id);
+          }
+        });
+      }, { rootMargin: '-30% 0px -70% 0px' });
+      sections.forEach(section => observer.observe(section));
+      return () => sections.forEach(section => observer.unobserve(section));
+    }
+  }, [pathname]); // Re-run effect if the path changes
   
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -29,6 +35,37 @@ export default function Navbar() {
   }, []);
 
   const links: string[] = ["About", "Projects", "Skills", "Contact"];
+
+  const renderLink = (item: string, isMobile = false) => {
+    const isHomePage = pathname === '/';
+    const targetPath = `/#${item.toLowerCase()}`;
+    const desktopClass = `hover-underline ${activeLink === item.toLowerCase() && isHomePage ? 'active' : ''}`;
+    const mobileClass = `text-white font-semibold text-lg hover:text-cyan-400 transition-colors duration-300 ${activeLink === item.toLowerCase() && isHomePage ? 'text-cyan-400' : ''}`;
+
+    if (item === "Contact") {
+      return (
+        <Link 
+          href="/contact" 
+          onClick={() => isMobile && setIsOpen(false)}
+          className={isMobile ? mobileClass.replace('text-cyan-400', '') : desktopClass.replace('active', '')}
+        >
+          {item}
+        </Link>
+      );
+    }
+    
+    // If on the homepage, use <a> for smooth scrolling.
+    // If on another page, use <Link> for client-side navigation.
+    return isHomePage ? (
+      <a href={targetPath} onClick={() => isMobile && setIsOpen(false)} className={isMobile ? mobileClass : desktopClass}>
+        {item}
+      </a>
+    ) : (
+      <Link href={targetPath} onClick={() => isMobile && setIsOpen(false)} className={isMobile ? mobileClass : desktopClass}>
+        {item}
+      </Link>
+    );
+  };
 
   return (
     <nav className={`fixed top-6 left-1/2 transform -translate-x-1/2 z-50 transition-all duration-500 ease-in-out w-[90%] md:w-auto ${isScrolled ? "scale-95" : "scale-100"}`}>
@@ -40,18 +77,10 @@ export default function Navbar() {
           </Link>
         </div>
 
-        {/* Desktop Menu */}
+        {/* --- FIX: Desktop Menu now uses the renderLink function --- */}
         <ul className="hidden text-[17px] text-white md:flex space-x-10">
           {links.map((item) => (
-            <li key={item}>
-              {item === "Contact" ? (
-                <Link href="/contact" className="hover-underline">{item}</Link>
-              ) : (
-                <a href={`/#${item.toLowerCase()}`} className={`hover-underline ${activeLink === item.toLowerCase() ? 'active' : ''}`}>
-                  {item}
-                </a>
-              )}
-            </li>
+            <li key={item}>{renderLink(item)}</li>
           ))}
         </ul>
         
@@ -64,15 +93,10 @@ export default function Navbar() {
       </div>
       {isOpen && (
         <div className="md:hidden mt-2 border border-white rounded-xl bg-black/90 flex flex-col items-center space-y-6 py-6">
-          {links.map((item) =>
-            item === "Contact" ? (
-              <Link key={item} href="/contact" onClick={() => setIsOpen(false)} className="text-white font-semibold text-lg hover:text-cyan-400 transition-colors duration-300">{item}</Link>
-            ) : (
-              <a key={item} href={`/#${item.toLowerCase()}`} onClick={() => setIsOpen(false)} className={`text-white font-semibold text-lg hover:text-cyan-400 transition-colors duration-300 ${activeLink === item.toLowerCase() ? 'text-cyan-400' : ''}`}>
-                {item}
-              </a>
-            )
-          )}
+          {/* --- FIX: Mobile Menu now uses the renderLink function --- */}
+          {links.map((item) => (
+            <React.Fragment key={item}>{renderLink(item, true)}</React.Fragment>
+          ))}
         </div>
       )}
     </nav>
