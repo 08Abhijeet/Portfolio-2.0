@@ -1,13 +1,14 @@
+
 /* app/components/Skills.css */
 
-/* Removed .skills-grid as Tailwind is now handling the layout */
+/* --- Base styles for desktop --- */
 
 .card {
   position: relative;
-  width: 150px; /* Using the new width you provided */
-  height: 180px;
+  width: 150px;
+  height: 150px;
   background-color: #1a1a1a;
-  border-radius: 10px;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -15,19 +16,22 @@
   perspective: 1000px;
   box-shadow: 0 0 0 5px #33333380;
   transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
 }
 
 .card img {
-  width: 80px; /* Using the new icon size */
+  width: 80px;
   height: 80px;
   transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-/* This rule makes the GitHub icon white */
-.github-card img {
+.white-icon-card img {
   filter: invert(1) brightness(1.5);
 }
-
+/* --- FIX: This rule makes the GitHub icon white --- */
+.github-card img {
+  filter: invert(1);
+}
 .card:hover,
 .card.tapped {
   transform: scale(1.05);
@@ -43,19 +47,26 @@
   padding: 20px;
   box-sizing: border-box;
   background-color: #2c2c2c;
-  transform: rotateX(-90deg);
-  transform-origin: bottom;
-  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  opacity: 0;
+  transform: scale(0.9);
+  transition: all 0.4s ease-in-out;
 }
 
 .card:hover .card__content,
 .card.tapped .card__content {
-  transform: rotateX(0deg);
+  transform: scale(1);
+  opacity: 1;
 }
 
 .card__title {
   margin: 0;
-  font-size: 24px;
+  margin-top: 2px;
+  font-size: 20px;
   color: #ffffff;
   font-weight: 700;
   text-align: center;
@@ -63,14 +74,42 @@
 
 .card:hover img,
 .card.tapped img {
-  scale: 0;
+  transform: scale(0.7);
+  opacity: 0;
 }
 
 .card__description {
   margin: 10px 0 0;
-  font-size: 16px; /* Using the new font size */
+  font-size: 12px;
   color: #cccccc;
   line-height: 1.4;
   text-align: center;
+}
+
+/* --- FIX: RESPONSIVE STYLES FOR MOBILE --- */
+@media (max-width: 640px) {
+  .card {
+    width: 100px;
+    height: 100px;
+  }
+
+  .card img {
+    width: 45px;
+    height: 45px;
+  }
+
+  .card__content {
+    padding: 10px;
+  }
+
+  .card__title {
+    font-size: 14px;
+  }
+
+  .card__description {
+    font-size: 9px;
+    margin-top: 4px;
+    line-height: 1.2;
+  }
 }
 

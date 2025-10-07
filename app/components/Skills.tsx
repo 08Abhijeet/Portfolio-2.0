@@ -48,13 +48,16 @@ const skillsData = [
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original-wordmark.svg",
     title: "SQL",
     description: "Relational databases and complex queries.",
-  },
-  {
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",
-    title: "GitHub",
-    description: "Version control and collaborative development.",
-    isWhite: true, // Added a flag for styling
-  },
+  }, {
+
+icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",
+
+ title: "GitHub",
+ description: "Version control and collaborative development.",
+
+ isWhite: true, // Added a flag for styling
+
+},
   {
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
     title: "Python",
@@ -71,14 +74,14 @@ export default function Skills() {
   const [tappedCard, setTappedCard] = useState<number | null>(null);
 
   return (
-    <section className="skills-section py-24 px-2" id="skills">
-      <div className="text-center mb-16">
+    <section className="skills-section py-15 px-2" id="skills">
+      <div className="text-center mb-17">
         <h1 className="text-white font-poppins font-bold text-4xl sm:text-5xl">
           My Skills
         </h1>
       </div>
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5 justify-items-center max-w-7xl mx-auto">
+      <div className="grid grid-cols-3 sm:grid-cols-3 lg:grid-cols-4 gap-5 justify-items-center max-w-3xl mx-auto">
         {skillsData.map((skill, index) => (
           <div
             className={`card ${skill.isWhite ? 'github-card' : ''} ${tappedCard === index ? "tapped" : ""}`}
@@ -97,4 +100,5 @@ export default function Skills() {
     </section>
   );
 }
+
 

@@ -1,6 +1,6 @@
 "use client";
 
-import { FaGithub, FaLinkedin, FaTwitter, FaInstagram } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
 
 export default function Footer() {
   return (
@@ -17,7 +17,7 @@ export default function Footer() {
         {/* Right Section: Social Icons */}
         <div className="flex gap-6 text-2xl justify-center md:justify-end flex-wrap">
           <a
-            href="https://github.com/yourusername"
+            href="https://github.com/08Abhijeet"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-cyan-400 transition"
@@ -25,23 +25,16 @@ export default function Footer() {
             <FaGithub />
           </a>
           <a
-            href="https://linkedin.com/in/yourusername"
+            href="https://www.linkedin.com/in/abhijeet-kadam-087809259/"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-cyan-400 transition"
           >
             <FaLinkedin />
           </a>
+      
           <a
-            href="https://twitter.com/yourusername"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-cyan-400 transition"
-          >
-            <FaTwitter />
-          </a>
-          <a
-            href="https://instagram.com/yourusername"
+            href="https://www.instagram.com/_abhi_.kadam/"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-cyan-400 transition"
