@@ -1,5 +1,3 @@
-// app/components/Navbar.tsx
-
 "use client";
 import { useState, useEffect } from "react";
 import Image from "next/image";
@@ -9,11 +7,9 @@ import "./Navbar.css";
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  // --- CHANGE 1: Set the default active link to 'about' ---
   const [activeLink, setActiveLink] = useState<string>('about');
 
   useEffect(() => {
-    // ... (This useEffect for scrollspy remains the same)
     const sections = document.querySelectorAll('section[id]');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -26,19 +22,17 @@ export default function Navbar() {
     return () => sections.forEach(section => observer.unobserve(section));
   }, []);
   
-  // ... (The other useEffect for navbar scaling remains the same)
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // --- CHANGE 2: Remove "Home" from the links array ---
   const links: string[] = ["About", "Projects", "Skills", "Contact"];
 
   return (
-    <nav className={`fixed top-6 left-1/2 transform -translate-x-1/2 z-50 transition-all duration-500 ease-in-out ${isScrolled ? "scale-95" : "scale-100"}`}>
-      <div className="border-white rounded-[40px] px-6 sm:px-10 py-3 flex items-center justify-between bg-black/30 backdrop-blur-md transition-all duration-500 min-w-[350px] sm:min-w-[500px] shadow-[0px_0px_20px_rgba(255,255,255,0.3)]">
+    <nav className={`fixed top-6 left-1/2 transform -translate-x-1/2 z-50 transition-all duration-500 ease-in-out w-[90%] md:w-auto ${isScrolled ? "scale-95" : "scale-100"}`}>
+      <div className="border-white rounded-[40px] px-4 sm:px-10 py-3 flex items-center justify-between bg-black/30 backdrop-blur-md transition-all duration-500 shadow-[0px_0px_20px_rgba(255,255,255,0.3)]">
         {/* Logo */}
         <div className="flex-shrink-0 cursor-pointer mr-4 sm:mr-6">
           <Link href="/">
@@ -61,9 +55,9 @@ export default function Navbar() {
           ))}
         </ul>
         
-        {/* ... (rest of the component is unchanged) ... */}
+        {/* Mobile Hamburger */}
         <div className="flex md:hidden flex-1 justify-end">
-          <button onClick={() => setIsOpen(!isOpen)} className="text-white focus:outline-none text-3xl z-50" aria-label="Toggle Menu">
+          <button onClick={() => setIsOpen(!isOpen)} className="text-white focus:outline-none text-3xl" aria-label="Toggle Menu">
             {isOpen ? "✕" : "☰"}
           </button>
         </div>
@@ -84,3 +78,4 @@ export default function Navbar() {
     </nav>
   );
 }
+

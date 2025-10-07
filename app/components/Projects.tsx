@@ -23,19 +23,26 @@ export default function Projects() {
     {
       title: "Blogging",
       description: "A dynamic blogging platform built with Next.js, allowing users to read, write, and manage articles. Optimized for performance and SEO.",
-      link: "https://github.com/Ajinkya-commits/Medium-Blogging-Website.git", // Add your GitHub or live demo link here
+      link: "https://medium-blogging-website-sigma.vercel.app/", // Add your GitHub or live demo link here
     },
     {
       title: "Fabrica",
       description: "An e-commerce website built with the MERN stack, integrated with Stripe for secure payment processing.",
       link: "https://fabrica-frontend.onrender.com/", // Add your GitHub or live demo link here
     },
+        {
+      title: "Sportify",
+      description: "A sports website built with MERN Stack which contains a vast collection of sport shops.",
+      link: "https://sportify-1-tkwr.onrender.com/", // Add your GitHub or live demo link here
+    },
   ];
 
   return (
-    <section id="projects" className="w-full py-20 bg-transparent flex flex-col items-center">
+    <section id="projects" className="w-full py-20 bg-transparent flex flex-col items-center px-4">
       <h2 className="font-poppins text-4xl font-bold mb-12">My Projects</h2>
-      <div className={styles.container}>
+      
+      {/* --- FIX: Replaced the old container with a responsive Tailwind CSS grid --- */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-4xl">
         {projects.map((project, index) => (
           <div key={index} className={styles.card}>
             {/* Front Slide */}
@@ -48,7 +55,6 @@ export default function Projects() {
             {/* Back Slide */}
             <div className={`${styles.slide} ${styles.slide2}`}>
               <div className={styles.content}>
-                {/* --- FIX: The title is now a hyperlink --- */}
                 <a href={project.link} target="_blank" rel="noopener noreferrer">
                   <h3>{project.title}</h3>
                 </a>
@@ -61,3 +67,4 @@ export default function Projects() {
     </section>
   );
 }
+

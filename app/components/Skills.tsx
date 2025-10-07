@@ -1,70 +1,91 @@
 "use client";
 
+import { useState } from "react";
 import "./Skills.css";
 
-// Updated data for the skills cards to include all requested skills
 const skillsData = [
   {
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg",
     title: "C++",
-    description: "Developing high-performance applications and efficient algorithms.",
+    description: "High-performance applications and algorithms.",
   },
   {
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
     title: "JavaScript",
-    description: "Building dynamic web apps with modern ES6+ features.",
+    description: "Dynamic web apps with modern ES6+ features.",
   },
   {
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
     title: "React.js",
-    description: "Creating complex, component-based user interfaces for the web.",
+    description: "Component-based user interfaces for the web.",
   },
   {
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
     title: "Next.js",
-    description: "Developing performant, server-rendered React applications.",
+    description: "Performant, server-rendered React applications.",
   },
   {
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
     title: "Node.js",
-    description: "Crafting robust and scalable backend services and RESTful APIs.",
+    description: "Scalable backend services and RESTful APIs.",
   },
   {
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg",
     title: "Express.js",
-    description: "Building fast and minimalist web APIs on top of Node.js.",
+    description: "Fast and minimalist web APIs on top of Node.js.",
   },
   {
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
     title: "Java",
-    description: "Building robust, object-oriented backend systems and applications.",
+    description: "Robust, object-oriented backend systems.",
   },
   {
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
     title: "MongoDB",
-    description: "Designing and managing NoSQL databases for scalable applications.",
+    description: "NoSQL databases for scalable applications.",
   },
   {
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original-wordmark.svg",
     title: "SQL",
-    description: "Managing relational databases and writing complex queries.",
+    description: "Relational databases and complex queries.",
   },
-
+  {
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",
+    title: "GitHub",
+    description: "Version control and collaborative development.",
+    isWhite: true, // Added a flag for styling
+  },
+  {
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+    title: "Python",
+    description: "General-purpose programming and data analysis.",
+  },
+  {
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/supabase/supabase-original.svg",
+    title: "Supabase",
+    description: "Open source backend-as-a-service.",
+  },
 ];
 
 export default function Skills() {
+  const [tappedCard, setTappedCard] = useState<number | null>(null);
+
   return (
-    <section className="skills-section py-24 px-4" id="skills">
+    <section className="skills-section py-24 px-2" id="skills">
       <div className="text-center mb-16">
         <h1 className="text-white font-poppins font-bold text-4xl sm:text-5xl">
           My Skills
         </h1>
       </div>
 
-      {/* --- FIX: Changed gap-8 to gap-4 to decrease the spacing --- */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center max-w-7xl mx-auto">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5 justify-items-center max-w-7xl mx-auto">
         {skillsData.map((skill, index) => (
-          <div className="card" key={index}>
+          <div
+            className={`card ${skill.isWhite ? 'github-card' : ''} ${tappedCard === index ? "tapped" : ""}`}
+            key={index}
+            onClick={() => setTappedCard(tappedCard === index ? null : index)}
+            onMouseLeave={() => setTappedCard(null)}
+          >
             <img src={skill.icon} alt={`${skill.title} icon`} />
             <div className="card__content">
               <p className="card__title">{skill.title}</p>

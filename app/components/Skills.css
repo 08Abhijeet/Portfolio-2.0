@@ -1,17 +1,11 @@
 /* app/components/Skills.css */
 
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-  justify-items: center;
-  width: 100%;
-}
+/* Removed .skills-grid as Tailwind is now handling the layout */
 
 .card {
   position: relative;
-  width: 220px; /* --- FIX: Changed from 250px to 280px to match the grid --- */
-  height: 200px;
+  width: 150px; /* Using the new width you provided */
+  height: 180px;
   background-color: #1a1a1a;
   border-radius: 10px;
   display: flex;
@@ -24,12 +18,18 @@
 }
 
 .card img {
-  width: 100px;
-  height: 100px;
+  width: 80px; /* Using the new icon size */
+  height: 80px;
   transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.card:hover {
+/* This rule makes the GitHub icon white */
+.github-card img {
+  filter: invert(1) brightness(1.5);
+}
+
+.card:hover,
+.card.tapped {
   transform: scale(1.05);
   box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.3);
 }
@@ -48,7 +48,8 @@
   transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.card:hover .card__content {
+.card:hover .card__content,
+.card.tapped .card__content {
   transform: rotateX(0deg);
 }
 
@@ -57,16 +58,19 @@
   font-size: 24px;
   color: #ffffff;
   font-weight: 700;
+  text-align: center;
 }
 
-.card:hover img {
+.card:hover img,
+.card.tapped img {
   scale: 0;
 }
 
 .card__description {
   margin: 10px 0 0;
-  font-size: 16px;
+  font-size: 16px; /* Using the new font size */
   color: #cccccc;
   line-height: 1.4;
+  text-align: center;
 }
 
