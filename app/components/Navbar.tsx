@@ -3,12 +3,14 @@ import React from "react"; // --- THIS LINE WAS ADDED ---
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from 'next/navigation';
 import "./Navbar.css";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [activeLink, setActiveLink] = useState<string>('about');
+  const pathname = usePathname();
 
   useEffect(() => {
     // Only run the scrollspy if we are on the homepage

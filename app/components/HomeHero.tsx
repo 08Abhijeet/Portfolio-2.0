@@ -53,6 +53,7 @@ export default function HomeHero() {
           </div>
 
           {/* Back Side */}
+<<<<<<< HEAD
           <div className="absolute w-full min-h-[80vh] md:h-full flex flex-col md:flex-row items-center justify-center gap-8 rounded-[50px] bg-black/50 backdrop-blur-md text-white p-6 transform rotate-y-180 backface-hidden neon-border">
             {/* Left: Text */}
             <motion.div
@@ -62,6 +63,12 @@ export default function HomeHero() {
               className="flex flex-col items-center md:items-start text-center md:text-left md:w-1/2"
             >
                <motion.h1
+=======
+          <div className="absolute w-full h-full flex flex-col md:flex-row items-center justify-center gap-6 md:gap-8 rounded-[50px] bg-black/50 backdrop-blur-md text-white p-4 sm:p-6 md:p-8 transform rotate-y-180 backface-hidden neon-border overflow-y-auto">
+            {/* Left: Text */}
+            <div className="flex flex-col items-center md:items-start text-center md:text-left md:w-1/2">
+              <motion.h1
+>>>>>>> b53f250c9b4a543d20b494d7c9400499cca234af
                 initial={{ opacity: 0, y: -50 }}
                 animate={flipped ? { opacity: 1, y: 0 } : { opacity: 0, y: -50 }}
                 transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
@@ -69,6 +76,7 @@ export default function HomeHero() {
               >
                 Hi, I’m <span className="text-white">Abhijeet Kadam</span>
               </motion.h1>
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 
@@ -86,6 +94,8 @@ export default function HomeHero() {
                 with clean design and robust code.
               </p>
 >>>>>>> b6b08a6180d38b3de7b36a7e00a3ad327c5e466c
+=======
+>>>>>>> b53f250c9b4a543d20b494d7c9400499cca234af
 
               <motion.h2
                 initial={{ opacity: 0, x: -50 }}
