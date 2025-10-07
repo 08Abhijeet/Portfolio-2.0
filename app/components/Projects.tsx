@@ -51,9 +51,10 @@ export default function Projects() {
 
   return (
     <section id="projects" className="w-full py-20 bg-transparent flex flex-col items-center px-4">
-      <h2 className="font-poppins text-4xl font-bold mb-12">My Projects</h2>
+      <h2 className="font-poppins text-5xl font-bold mb-12">My Projects</h2>
 
-      <div className="grid w-full grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:max-w-7xl mx-auto">
+      {/* --- FIX: Simplified the grid classes for better responsive behavior --- */}
+      <div className="grid  max-w-7xl mx-auto grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-28">
         {projects.map((project, index) => (
           <div key={index} className={styles.card}>
             <div className={`${styles.slide} ${styles.slide1}`}>
@@ -66,8 +67,7 @@ export default function Projects() {
                 <a href={project.link} target="_blank" rel="noopener noreferrer">
                   <h3>{project.title}</h3>
                 </a>
-              
-                {/* --- FIX: Replaced the list with a paragraph --- */}
+             
                 <p className={styles.description}>{project.description}</p>
               </div>
             </div>
