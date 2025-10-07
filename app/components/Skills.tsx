@@ -74,7 +74,7 @@ export default function Skills() {
   const [tappedCard, setTappedCard] = useState<number | null>(null);
 
   return (
-    <section className="skills-section py-15 px-2" id="skills">
+    <section className="skills-section py-12 px-2" id="skills">
       <div className="text-center mb-17">
         <h1 className="text-white font-poppins font-bold text-4xl sm:text-5xl">
           My Skills

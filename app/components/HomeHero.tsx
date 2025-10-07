@@ -40,35 +40,23 @@ export default function HomeHero() {
         onClick={() => setFlipped(!flipped)}
       >
         <div
-          className={`relative w-full h-[600px] sm:h-[700px] md:h-[90vh] transition-transform duration-700 transform ${
+          className={`relative w-full h-[90vh] sm:h-[600px] md:h-[90vh] transition-transform duration-700 transform ${
             flipped ? "rotate-y-180" : ""
           }`}
           style={{ transformStyle: "preserve-3d" }}
         >
           {/* Front Side */}
-          <div className="italic absolute p-4 w-full h-full md:h-[90vh] flex items-center justify-center rounded-[50px] bg-black/50 backdrop-blur-md text-white text-center text-xl sm:text-3xl md:text-4xl font-bold backface-hidden neon-border">
+          <div className="italic absolute p-4 w-full h-full flex items-center justify-center rounded-[50px] bg-black/50 backdrop-blur-md text-white text-center text-xl sm:text-3xl md:text-4xl font-bold backface-hidden neon-border">
             <div className="flex flex-col sm:flex-row items-center gap-3">
               <UiverseButton text="Click me ?" />
             </div>
           </div>
 
           {/* Back Side */}
-<<<<<<< HEAD
-          <div className="absolute w-full min-h-[80vh] md:h-full flex flex-col md:flex-row items-center justify-center gap-8 rounded-[50px] bg-black/50 backdrop-blur-md text-white p-6 transform rotate-y-180 backface-hidden neon-border">
-            {/* Left: Text */}
-            <motion.div
-              initial={{ opacity: 0, x: -40 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.9, ease: "easeOut" }}
-              className="flex flex-col items-center md:items-start text-center md:text-left md:w-1/2"
-            >
-               <motion.h1
-=======
-          <div className="absolute w-full h-full flex flex-col md:flex-row items-center justify-center gap-6 md:gap-8 rounded-[50px] bg-black/50 backdrop-blur-md text-white p-4 sm:p-6 md:p-8 transform rotate-y-180 backface-hidden neon-border overflow-y-auto">
+          <div className="absolute w-full h-[95vh] flex flex-col md:flex-row items-center justify-center gap-6 md:gap-8 rounded-[50px] bg-black/50 backdrop-blur-md text-white p-4 sm:p-6 md:p-8 transform rotate-y-180 backface-hidden neon-border overflow-y-auto">
             {/* Left: Text */}
             <div className="flex flex-col items-center md:items-start text-center md:text-left md:w-1/2">
               <motion.h1
->>>>>>> b53f250c9b4a543d20b494d7c9400499cca234af
                 initial={{ opacity: 0, y: -50 }}
                 animate={flipped ? { opacity: 1, y: 0 } : { opacity: 0, y: -50 }}
                 transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
@@ -76,9 +64,6 @@ export default function HomeHero() {
               >
                 Hi, I’m <span className="text-white">Abhijeet Kadam</span>
               </motion.h1>
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 
               <motion.h2
                 initial={{ opacity: 0, x: -50 }}
@@ -86,24 +71,7 @@ export default function HomeHero() {
                 transition={{ duration: 0.8, ease: "easeOut", delay: 0.6 }}
                 className="mt-4 text-lg sm:text-2xl md:text-3xl text-white/90"
               >
-                Web Developer | Problem Solver | Programmer
-              </motion.h2>
-              <p className="mt-6 text-white/80 max-w-lg text-sm sm:text-base md:text-base">
-                I build smooth, modern, and high-performance web applications.
-                Passionate about transforming ideas into beautiful user experiences
-                with clean design and robust code.
-              </p>
->>>>>>> b6b08a6180d38b3de7b36a7e00a3ad327c5e466c
-=======
->>>>>>> b53f250c9b4a543d20b494d7c9400499cca234af
-
-              <motion.h2
-                initial={{ opacity: 0, x: -50 }}
-                animate={flipped ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
-                transition={{ duration: 0.8, ease: "easeOut", delay: 0.6 }}
-                className="mt-4 text-lg sm:text-2xl md:text-3xl text-white/90"
-              >
-                Full Stack Developer | Problem Solver | Programmer
+                Full Stack Developer | Web Designer | Programmer
               </motion.h2>
 
               <motion.p
@@ -133,7 +101,7 @@ export default function HomeHero() {
                 >
                   View My Resume
                 </a>
-             
+              
               </motion.div>
             </div>
 
@@ -175,7 +143,7 @@ export default function HomeHero() {
           animation: neonGlow 2s infinite alternate;
         }
 
-    
+      
       `}</style>
     </section>
   );
