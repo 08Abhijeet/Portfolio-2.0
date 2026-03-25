@@ -26,10 +26,10 @@ export default function HomeHero() {
   return (
     <section
       id="about"
-      className="flex items-center justify-center w-full min-h-screen px-4 pt-10 pb-12 sm:pb-16"
+      className="flex items-center justify-center w-full min-h-screen px-2 sm:px-4 pt-4 sm:pt-10 pb-8 sm:pb-16"
     >
       <div className="w-full max-w-7xl">
-        <div className="w-full min-h-[85vh] sm:min-h-[560px] md:min-h-[86vh] flex flex-col md:flex-row items-center justify-center gap-6 md:gap-8 rounded-[34px] border border-white/10 bg-black/60 backdrop-blur-2xl text-white p-5 sm:p-7 md:p-10 overflow-y-auto shadow-[0_20px_80px_rgba(0,0,0,0.5)]">
+        <div className="w-full min-h-0 sm:min-h-[560px] md:min-h-[86vh] py-8 sm:py-0 flex flex-col md:flex-row items-center justify-center gap-6 md:gap-8 rounded-3xl sm:rounded-[34px] border border-white/10 bg-black/60 backdrop-blur-2xl text-white p-4 sm:p-7 md:p-10 overflow-hidden shadow-[0_20px_40px_rgba(0,0,0,0.3)] sm:shadow-[0_20px_80px_rgba(0,0,0,0.5)] mt-4 sm:mt-0">
           <div className="flex flex-col items-center md:items-start text-center md:text-left md:w-1/2">
             <motion.h1
               initial={{ opacity: 0, y: -50 }}
@@ -90,6 +90,7 @@ export default function HomeHero() {
                 src="/abhijeet.png"
                 alt="Abhijeet Kadam"
                 fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 className="object-contain"
                 priority
               />

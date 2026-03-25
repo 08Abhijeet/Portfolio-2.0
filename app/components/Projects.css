@@ -186,31 +186,36 @@
 /* --- MOBILE RESPONSIVENESS --- */
 @media (max-width: 640px) {
   .card {
-    width: 250px;
-    height: 250px;
+    width: 180px;
+    height: 180px;
   }
   .card .container-image {
-    width: 220px;
-    height: 220px;
+    width: 160px;
+    height: 160px;
+  }
+  .image-circle svg {
+    width: 55px !important;
+    height: 55px !important;
   }
   .card .content {
     flex-direction: column-reverse;
     justify-content: center;
-    gap: 1rem;
+    gap: 0.5rem;
+    padding: 12px;
   }
   .card:hover .content {
-    width: 320px;
-    height: 480px;
+    width: 230px;
+    height: 330px;
   }
   .card .content .detail {
     width: 100%;
-    height: 45%;
+    height: 48%;
     align-items: center;
     text-align: center;
   }
   .card .content .product-image {
     width: 100%;
-    height: 55%;
+    height: 52%;
   }
   .card .content .product-image .box-image {
     width: 100%;
@@ -223,13 +228,18 @@
     left: 0;
   }
   .card .content .detail span {
-    font-size: 1.3rem;
+    font-size: 1.15rem;
+    line-height: 1.1;
   }
   .card .content .detail p {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     overflow-y: auto;
+    margin-bottom: 5px;
   }
   .card .content .detail button {
     margin-top: 5px;
+    height: 28px;
+    width: 80px;
+    font-size: 11px;
   }
 }

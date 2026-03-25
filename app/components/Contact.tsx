@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
+import { motion } from "framer-motion";
 
 // This is a clean, reverted version of the contact form.
 // It is fully responsive and uses a standard, modern form design.
@@ -47,15 +48,25 @@ const Contact = () => {
   return (
     <section
       id="contact"
-      className="flex flex-col items-center justify-center min-h-[90vh] pt-0 pb-16 px-4 relative z-10"
+      className="flex flex-col items-center justify-center min-h-[80vh] py-5 sm:pb-16 px-4 relative z-10"
     >
-      <div className="text-center mb-10 max-w-3xl mt-4 sm:mt-12">
-        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold">
-          LET&apos;S CONNECT
-        </h1>
-      </div>
+      <motion.div 
+        initial={{ opacity: 0, scale: 0.95, y: 20 }}
+        whileInView={{ opacity: 1, scale: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.5 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className="flex flex-col items-center text-center justify-center mb-10 sm:mb-16 z-10 bg-black/50 backdrop-blur-2xl border border-white/10 px-6 py-4 sm:px-10 sm:py-6 rounded-3xl sm:rounded-[2.5rem] shadow-[0_10px_40px_rgba(0,0,0,0.5)] w-fit max-w-[95vw] border-t-white/20 mx-auto mt-4 sm:mt-12"
+      >
+        <div className="inline-flex items-center gap-2 px-3 py-1 sm:px-4 sm:py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-md mb-2 sm:mb-3">
+          <span className="w-2 h-2 rounded-full bg-white animate-pulse shadow-[0_0_8px_rgba(255,255,255,0.8)]"></span>
+          <span className="text-xs sm:text-sm font-medium text-gray-200 uppercase tracking-widest">Connect</span>
+        </div>
+        <h2 className="font-poppins text-3xl sm:text-5xl md:text-6xl font-bold text-white tracking-tight leading-tight uppercase">
+          Let&apos;s <span className="bg-gradient-to-r from-gray-100 to-gray-500 bg-clip-text text-transparent">Connect</span>
+        </h2>
+      </motion.div>
 
-      <div className="container mx-auto grid grid-cols-1 lg:grid-cols-2 items-center w-full max-w-6xl">
+      <div className="container mx-auto grid grid-cols-1 lg:grid-cols-2 items-center w-full max-w-6xl gap-10 lg:gap-12">
         {/* Left Side: Video */}
         <div className="flex justify-center items-center">
           <video

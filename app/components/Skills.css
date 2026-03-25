@@ -101,21 +101,30 @@
 /* --- FIX: RESPONSIVE STYLES FOR MOBILE --- */
 @media (max-width: 640px) {
   .skill-item {
-    width: 75px;
-    gap: 8px;
+    width: 50px;
+    gap: 6px;
   }
   .skill-icon-wrapper {
-    width: 60px;
-    height: 60px;
+    width: 45px;
+    height: 45px;
   }
 
   .skill-icon-wrapper img {
-    width: 42px;
-    height: 42px;
+    width: 32px;
+    height: 32px;
   }
   
   .skill-name {
-    font-size: 11px;
+    font-size: 10px;
+  }
+
+  .scroller-container {
+    padding: 20px 0;
+  }
+
+  .scroller-track {
+    gap: 2.5rem;
+    animation: slide-right 20s linear infinite;
   }
 }
 

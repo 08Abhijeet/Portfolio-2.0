@@ -112,7 +112,7 @@ export const MobileSidebar = ({
   return (
     <div
       className={cn(
-        "flex h-screen w-[58px] shrink-0 flex-col sm:hidden",
+        "flex shrink-0 sm:hidden",
         className
       )}
       {...props}
@@ -148,7 +148,7 @@ export const SidebarLink = ({
           display: showExpanded ? "inline-block" : "none",
           opacity: showExpanded ? 1 : 0,
         }}
-        className="text-neutral-700 dark:text-neutral-200 text-sm group-hover/sidebar:translate-x-1 transition duration-150 whitespace-pre inline-block !p-0 !m-0"
+        className="text-neutral-700 dark:text-neutral-200 group-hover/sidebar:text-white group-hover/sidebar:drop-shadow-[0_0_8px_rgba(255,255,255,0.8)] text-sm group-hover/sidebar:translate-x-1 transition-all duration-150 whitespace-pre !p-0 !m-0 hidden sm:inline-block"
       >
         {link.label}
       </motion.span>

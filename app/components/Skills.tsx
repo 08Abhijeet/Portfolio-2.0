@@ -73,19 +73,19 @@ icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original
 
 export default function Skills() {
   return (
-    <section className="skills-section py-16 px-3 md:mt-16" id="skills">
+    <section className="skills-section py-8 sm:py-16 px-3 md:mt-16" id="skills">
       <motion.div 
         initial={{ opacity: 0, scale: 0.95, y: 20 }}
         whileInView={{ opacity: 1, scale: 1, y: 0 }}
         viewport={{ once: true, amount: 0.5 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className="flex flex-col items-center text-center justify-center mb-16 z-10 bg-black/50 backdrop-blur-2xl border border-white/10 px-6 py-5 sm:px-10 sm:py-6 rounded-[2.5rem] shadow-[0_10px_40px_rgba(0,0,0,0.5)] w-fit max-w-[95vw] border-t-white/20 mx-auto"
+        className="flex flex-col items-center text-center justify-center mb-10 sm:mb-16 z-10 bg-black/50 backdrop-blur-2xl border border-white/10 px-6 py-4 sm:px-10 sm:py-6 rounded-3xl sm:rounded-[2.5rem] shadow-[0_10px_40px_rgba(0,0,0,0.5)] w-fit max-w-[95vw] border-t-white/20 mx-auto"
       >
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-md mb-3">
+        <div className="inline-flex items-center gap-2 px-3 py-1 sm:px-4 sm:py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-md mb-2 sm:mb-3">
           <span className="w-2 h-2 rounded-full bg-white animate-pulse shadow-[0_0_8px_rgba(255,255,255,0.8)]"></span>
-          <span className="text-sm font-medium text-gray-200 uppercase tracking-widest">Expertise</span>
+          <span className="text-xs sm:text-sm font-medium text-gray-200 uppercase tracking-widest">Expertise</span>
         </div>
-        <h2 className="font-poppins text-4xl sm:text-5xl md:text-6xl font-bold text-white tracking-tight leading-tight">
+        <h2 className="font-poppins text-3xl sm:text-5xl md:text-6xl font-bold text-white tracking-tight leading-tight">
           My <span className="bg-gradient-to-r from-gray-100 to-gray-500 bg-clip-text text-transparent">Skills</span>
         </h2>
       </motion.div>
@@ -100,10 +100,7 @@ export default function Skills() {
             >
               <div className="skill-icon-wrapper">
                 <Image src={skill.icon} alt={`${skill.title} icon`} width={65} height={65} unoptimized />
-                <div className="skill-tooltip text-center">
-                  <div className="font-poppins font-bold text-white tracking-widest uppercase mb-1 text-sm">{skill.title}</div>
-                  <div className="tooltip-desc text-white/70">{skill.description}</div>
-                </div>
+               
               </div>
             </div>
           ))}

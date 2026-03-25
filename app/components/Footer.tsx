@@ -265,10 +265,15 @@ export default function Footer() {
         .footer-bottom-link:hover { color: #fff; }
 
         @media (max-width: 640px) {
-          .footer-top { flex-direction: column; }
-          .footer-nav { gap: 2rem; }
-          .footer-email-row { flex-direction: column; align-items: stretch; }
+          .footer-top { flex-direction: column; align-items: center; text-align: center; gap: 3rem; }
+          .footer-nav { width: 100%; justify-content: center; gap: 3rem; }
+          .footer-nav-col { align-items: center; }
+          .footer-cta { align-items: center; width: 100%; text-align: center; }
+          .footer-email-row { flex-direction: column; align-items: stretch; width: 100%; }
           .footer-send-btn { text-align: center; justify-content: center; }
+          .footer-name-text { font-size: clamp(36px, 14vw, 70px); }
+          .footer-bottom { flex-direction: column; align-items: center; text-align: center; gap: 1rem; }
+          .footer-bottom-links { justify-content: center; }
         }
       `}</style>
     </footer>

@@ -51,19 +51,16 @@ export default function AppSidebar() {
   return (
     <Sidebar open={open} setOpen={setOpen} animate>
       <SidebarBody
-        className="justify-between gap-6 border-r border-white/10 !bg-neutral-950/20 backdrop-blur-md h-screen py-4 sm:py-6"
+        className="justify-between sm:gap-6 border sm:border-y-0 sm:border-l-0 sm:border-r border-white/20 !bg-neutral-950/60 backdrop-blur-xl h-auto w-auto sm:h-screen p-2 sm:py-6 relative z-50 rounded-[1.5rem] sm:rounded-none m-3 mt-1 sm:m-0 shadow-[0_10px_40px_rgba(0,0,0,0.4)] sm:shadow-none"
       >
-        <div className="flex flex-1 flex-col items-start w-full overflow-x-hidden overflow-y-hidden">
-          <div className="w-full sm:hidden">
-            <LogoIcon />
-          </div>
-          <div className="hidden w-full sm:block">{open ? <Logo /> : <LogoIcon />}</div>
-          <div className="mt-8 flex w-full flex-col items-start gap-4 sm:mt-10">
+        <div className="flex flex-row sm:flex-col items-center sm:items-start w-full justify-around sm:justify-start overflow-hidden">
+          <div className="hidden w-full sm:block mb-0 sm:mb-8">{open ? <Logo /> : <LogoIcon />}</div>
+          <div className="flex w-full flex-row sm:flex-col items-center justify-around sm:items-start sm:justify-start gap-1 sm:gap-4">
             {links.map((link) => (
               <SidebarLink
                 key={link.label}
                 link={link}
-                className="rounded-xl hover:bg-white/5 w-full"
+                className="rounded-xl hover:bg-white/5 w-auto sm:w-full flex justify-center sm:justify-start items-center p-3 sm:px-4 sm:py-2"
               />
             ))}
           </div>

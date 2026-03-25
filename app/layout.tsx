@@ -78,10 +78,10 @@ export default function RootLayout({
         )}
 
         {!showIntro && (
-          <div className="relative z-10 flex h-screen">
+          <div className="relative z-10 flex h-screen flex-col-reverse sm:flex-row">
             <AppSidebar />
-            <div className="flex h-screen flex-1 flex-col overflow-hidden">
-              <main className="flex-1 overflow-y-auto">
+            <div className="flex h-full sm:h-screen flex-1 flex-col overflow-hidden">
+              <main className="flex-1 overflow-y-auto overflow-x-hidden relative">
                 {children}
                 <Footer />
               </main>
