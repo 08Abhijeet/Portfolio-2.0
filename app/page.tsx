@@ -2,8 +2,8 @@
 
 import HomeHero from "./components/HomeHero";
 import Skills from "./components/Skills";
+import Experience from "./components/Experience";
 import Projects from "./components/Projects";
-import Contact from "./components/Contact";
 
 export default function HomePage() {
   return (
@@ -17,10 +17,13 @@ export default function HomePage() {
         <Skills />
       </section>
       
+      <section id="experience">
+        <Experience />
+      </section>
+      
       <section id="projects">
         <Projects />
       </section>
-      <Contact />
     </>
   );
 }

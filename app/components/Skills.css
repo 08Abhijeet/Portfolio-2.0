@@ -1,115 +1,155 @@
-
 /* app/components/Skills.css */
 
-/* --- Base styles for desktop --- */
-
-.card {
-  position: relative;
-  width: 150px;
-  height: 150px;
-  background-color: #1a1a1a;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  perspective: 1000px;
-  box-shadow: 0 0 0 5px #33333380;
-  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  cursor: pointer;
-}
-
-.card img {
-  width: 80px;
-  height: 80px;
-  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.white-icon-card img {
-  filter: invert(1) brightness(1.5);
-}
-/* --- FIX: This rule makes the GitHub icon white --- */
-.github-card img {
-  filter: invert(1);
-}
-.card:hover,
-.card.tapped {
-  transform: scale(1.05);
-  box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.3);
-}
-
-.card__content {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  padding: 20px;
-  box-sizing: border-box;
-  background-color: #2c2c2c;
+/* --- Base styles for icons --- */
+.skill-item {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+  width: 100px;
+}
+
+.skill-icon-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
   justify-content: center;
-  text-align: center;
-  opacity: 0;
-  transform: scale(0.9);
-  transition: all 0.4s ease-in-out;
+  width: 80px;
+  height: 80px;
+  flex-shrink: 0;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
 }
 
-.card:hover .card__content,
-.card.tapped .card__content {
-  transform: scale(1);
+.skill-icon-wrapper:hover {
+  transform: translateY(-10px) scale(1.15);
+}
+
+.skill-icon-wrapper img {
+  width: 65px;
+  height: 65px;
+  transition: all 0.3s ease;
+  object-fit: contain;
+}
+
+.white-icon-wrapper img {
+  filter: invert(1) brightness(1.5);
+}
+
+.github-icon-wrapper img {
+  filter: invert(1);
+}
+
+/* Tooltip Styles */
+.skill-tooltip {
+  position: absolute;
+  bottom: 120%; /* Place it exactly above the icon */
+  left: 50%;
+  transform: translateX(-50%) translateY(15px) scale(0.9);
+  width: max-content;
+  max-width: 220px;
+  background: rgba(10, 10, 10, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 12px 16px;
+  border-radius: 12px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  pointer-events: none; /* Don't block hover events on the icon itself */
+  z-index: 50;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+}
+
+.skill-tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 7px;
+  border-style: solid;
+  border-color: rgba(10, 10, 10, 0.85) transparent transparent transparent;
+}
+
+.skill-icon-wrapper:hover .skill-tooltip {
   opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0) scale(1);
 }
 
-.card__title {
-  margin: 0;
-  margin-top: 2px;
-  font-size: 20px;
-  color: #ffffff;
-  font-weight: 700;
+.tooltip-desc {
+  font-family: 'Poppins', sans-serif;
+  color: #fff;
+  font-size: 13px;
   text-align: center;
-}
-
-.card:hover img,
-.card.tapped img {
-  transform: scale(0.7);
-  opacity: 0;
-}
-
-.card__description {
-  margin: 10px 0 0;
-  font-size: 12px;
-  color: #cccccc;
   line-height: 1.4;
+  white-space: normal;
+}
+
+.skill-name {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  color: #a3a3a3;
   text-align: center;
+  letter-spacing: 0.5px;
 }
 
 /* --- FIX: RESPONSIVE STYLES FOR MOBILE --- */
 @media (max-width: 640px) {
-  .card {
-    width: 100px;
-    height: 100px;
+  .skill-item {
+    width: 75px;
+    gap: 8px;
+  }
+  .skill-icon-wrapper {
+    width: 60px;
+    height: 60px;
   }
 
-  .card img {
-    width: 45px;
-    height: 45px;
+  .skill-icon-wrapper img {
+    width: 42px;
+    height: 42px;
   }
-
-  .card__content {
-    padding: 10px;
+  
+  .skill-name {
+    font-size: 11px;
   }
+}
 
-  .card__title {
-    font-size: 14px;
+/* --- Infinite Scrolling Marquee --- */
+
+.scroller-container {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+  padding: 40px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  /* Soft fade edges to blend into background */
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.scroller-track {
+  display: flex;
+  gap: 4.5rem;
+  width: max-content;
+  animation: slide-right 65s linear infinite;
+}
+
+.scroller-container:hover .scroller-track {
+  animation-play-state: paused;
+}
+
+@keyframes slide-right {
+  from {
+    transform: translateX(-50%);
   }
-
-  .card__description {
-    font-size: 9px;
-    margin-top: 4px;
-    line-height: 1.2;
+  to {
+    transform: translateX(0%);
   }
 }
 

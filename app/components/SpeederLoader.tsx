@@ -1,9 +1,16 @@
 import React from 'react';
 import './SpeederLoader.css';
+import { motion } from "framer-motion";
 
 const SpeederLoader = () => {
   return (
-    <div className="loader-overlay">
+    <motion.div
+      className="loader-overlay"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.25, ease: "easeOut" }}
+    >
       {/* This is the new cloud animation background */}
       <div className="clouds">
         <div className="cloud cloud1"></div>
@@ -32,7 +39,7 @@ const SpeederLoader = () => {
         <span></span>
         <span></span>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

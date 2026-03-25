@@ -6,7 +6,10 @@
 
 @custom-variant dark (&:is(.dark *));
 body {
-  background-color: #000000;
+  background:
+    radial-gradient(1200px 600px at 10% -10%, rgba(34, 211, 238, 0.12), transparent 60%),
+    radial-gradient(1000px 500px at 90% -20%, rgba(168, 85, 247, 0.12), transparent 55%),
+    #07080b;
   color: #ffffff; /* Cream color */
   font-family: 'Poppins', 'Arial', sans-serif;  /* Poppins font */
 }
@@ -21,7 +24,7 @@ section[id] {
 }
 
 main {
-  padding-bottom: 6rem;
+  padding-bottom: 0;
 }
 @layer utilities {
   .perspective {

@@ -47,9 +47,9 @@ const Contact = () => {
   return (
     <section
       id="contact"
-      className="flex flex-col items-center justify-center min-h-screen pt-40 pb-16 px-4"
+      className="flex flex-col items-center justify-center min-h-[90vh] pt-0 pb-16 px-4 relative z-10"
     >
-      <div className="text-center mb-12 max-w-3xl">
+      <div className="text-center mb-10 max-w-3xl mt-4 sm:mt-12">
         <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold">
           LET&apos;S CONNECT
         </h1>
@@ -71,7 +71,7 @@ const Contact = () => {
         </div>
 
         {/* Right Side: Simple Form */}
-        <div className="bg-[#000000] p-8 rounded-2xl shadow-lg w-full">
+        <div className="bg-black/80 backdrop-blur-xl border border-white p-8 rounded-3xl shadow-[0_4px_30px_rgba(0,0,0,0.5)] w-full">
           <form onSubmit={handleSubmit}>
             <div className="mb-6">
               <label
@@ -86,7 +86,7 @@ const Contact = () => {
                 name="name"
                 required
                 disabled={isSubmitting}
-                className="w-full bg-[#000000] border border-gray-600 rounded-3xl py-3 px-4 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-white transition-all duration-300"
+                className="w-full bg-black border border-white/20 rounded-3xl py-3 px-4 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white transition-all duration-300"
               />
             </div>
             <div className="mb-6">
@@ -102,7 +102,7 @@ const Contact = () => {
                 name="email"
                 required
                 disabled={isSubmitting}
-                className="w-full bg-[#000000] border border-gray-600 rounded-3xl py-3 px-4 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-white transition-all duration-300"
+                className="w-full bg-black border border-white/20 rounded-3xl py-3 px-4 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white transition-all duration-300"
               />
             </div>
             <div className="mb-8">
@@ -118,7 +118,7 @@ const Contact = () => {
                 rows={5}
                 required
                 disabled={isSubmitting}
-                className="w-full bg-[#000000] border border-gray-600 rounded-3xl py-3 px-4 text-white placeholder-gray-500 resize-none focus:outline-none focus:ring-2 focus:ring-white transition-all duration-300"
+                className="w-full bg-black border border-white/20 rounded-3xl py-3 px-4 text-white placeholder-gray-400 resize-none focus:outline-none focus:ring-2 focus:ring-white transition-all duration-300"
               ></textarea>
             </div>
             <button
