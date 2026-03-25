@@ -51,7 +51,7 @@ export default function AppSidebar() {
   return (
     <Sidebar open={open} setOpen={setOpen} animate>
       <SidebarBody
-        className="justify-between sm:gap-6 border sm:border-y-0 sm:border-l-0 sm:border-r border-white/20 !bg-neutral-950/60 backdrop-blur-xl h-auto w-auto sm:h-screen p-2 sm:py-6 relative z-50 rounded-[1.5rem] sm:rounded-none m-3 mt-1 sm:m-0 shadow-[0_10px_40px_rgba(0,0,0,0.4)] sm:shadow-none"
+        className="justify-between sm:gap-6 border sm:border-y-0 sm:border-l-0 sm:border-r border-white/20 !bg-neutral-950/60 backdrop-blur-xl h-auto w-auto sm:h-[100dvh] p-2 sm:py-6 fixed bottom-5 left-6 right-6 sm:relative sm:bottom-auto sm:left-auto sm:right-auto z-[100] rounded-3xl sm:rounded-none shadow-[0_10px_50px_rgba(0,0,0,0.5)] sm:shadow-none"
       >
         <div className="flex flex-row sm:flex-col items-center sm:items-start w-full justify-around sm:justify-start overflow-hidden">
           <div className="hidden w-full sm:block mb-0 sm:mb-8">{open ? <Logo /> : <LogoIcon />}</div>

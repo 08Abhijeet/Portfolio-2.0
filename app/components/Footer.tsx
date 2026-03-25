@@ -218,15 +218,16 @@ export default function Footer() {
         .footer-name-text {
           display: inline-block;
           font-family: Poppins, Arial, sans-serif;
-          font-size: clamp(72px, 15vw, 210px);
+          font-size: clamp(72px, 16.5vw, 250px);
           font-weight: 900;
+          text-transform: uppercase;
           background: linear-gradient(90deg, #18181A 0%, #333333 40%, #FFFFFF 50%, #333333 60%, #18181A 100%);
           background-size: 200% auto;
           animation: shine-text 5s linear infinite;
           -webkit-background-clip: text;
           background-clip: text;
           -webkit-text-fill-color: transparent;
-          letter-spacing: 0.06em;
+          letter-spacing: 0.03em;
           /* Shift text up slightly so full descender of j is visible */
           position: relative;
           top: -0.05em;
@@ -271,7 +272,7 @@ export default function Footer() {
           .footer-cta { align-items: center; width: 100%; text-align: center; }
           .footer-email-row { flex-direction: column; align-items: stretch; width: 100%; }
           .footer-send-btn { text-align: center; justify-content: center; }
-          .footer-name-text { font-size: clamp(36px, 14vw, 70px); }
+          .footer-name-text { font-size: clamp(48px, 18.5vw, 110px); letter-spacing: 0.02em; }
           .footer-bottom { flex-direction: column; align-items: center; text-align: center; gap: 1rem; }
           .footer-bottom-links { justify-content: center; }
         }

@@ -53,7 +53,7 @@ export default function RootLayout({
 
   return (
     <html lang="en" className={cn("font-sans", geist.variable)}>
-      <body className={`${poppins.variable} antialiased bg-gray-950 text-gray-100 h-screen overflow-hidden`}>
+      <body className={`${poppins.variable} antialiased bg-gray-950 text-gray-100 h-[100dvh] overflow-hidden`}>
         <AnimatePresence mode="wait">
           {isLoading && <SpeederLoader />}
         </AnimatePresence>
@@ -78,10 +78,10 @@ export default function RootLayout({
         )}
 
         {!showIntro && (
-          <div className="relative z-10 flex h-screen flex-col-reverse sm:flex-row">
+          <div className="relative z-10 flex h-[100dvh] flex-col-reverse sm:flex-row">
             <AppSidebar />
-            <div className="flex h-full sm:h-screen flex-1 flex-col overflow-hidden">
-              <main className="flex-1 overflow-y-auto overflow-x-hidden relative">
+            <div className="flex h-full sm:h-[100dvh] flex-1 flex-col overflow-hidden">
+              <main className="flex-1 overflow-y-auto overflow-x-hidden relative pb-28 sm:pb-0">
                 {children}
                 <Footer />
               </main>
