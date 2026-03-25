@@ -2,13 +2,17 @@
 
 import { useState, useEffect, useRef } from "react";
 import { usePathname } from 'next/navigation';
-import { Poppins } from 'next/font/google';
+import { Poppins, Geist } from 'next/font/google';
 import "./globals.css";
 
-import Navbar from "./components/Navbar";
+import BottomDockNav from "./components/BottomDockNav";
 import Intro from "./components/Intro";
 import Footer from "./components/Footer";
 import SpeederLoader from "./components/SpeederLoader";
+import { cn } from "@/lib/utils";
+
+const geist = Geist({subsets:['latin'],variable:'--font-sans'});
+
 const poppins = Poppins({
   subsets: ["latin"],
   display: 'swap',
@@ -46,7 +50,7 @@ export default function RootLayout({
   }, [pathname]);
 
   return (
-    <html lang="en">
+    <html lang="en" className={cn("font-sans", geist.variable)}>
       <body className={`${poppins.variable} antialiased bg-gray-950 text-gray-100`}>
         {/* 4. Conditionally render the loader */}
         {isLoading && <SpeederLoader />}
@@ -62,7 +66,7 @@ export default function RootLayout({
 
         {!showIntro && (
           <div className="relative z-10 flex flex-col min-h-screen">
-            <Navbar />
+            <BottomDockNav />
             <main>{children}</main>
             <Footer />
           </div>
