@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Sidebar, SidebarBody, SidebarLink } from "@/components/ui/sidebar";
+import Image from "next/image";
 import { IconBriefcase, IconCode, IconHome, IconMail, IconHistory } from "@tabler/icons-react";
 import { motion } from "motion/react";
 import Link from "next/link";
@@ -102,10 +103,13 @@ const LogoIcon = () => {
 
 const BrandAvatar = ({ className }: { className?: string }) => {
   return (
-    <img
+    <Image
       src="/developer-icon.gif"
       alt="Developer icon"
+      width={64}
+      height={64}
       className={`${className ?? ""} rounded-2xl object-cover border border-white/20 bg-[#111]`}
+      unoptimized
     />
   );
 };

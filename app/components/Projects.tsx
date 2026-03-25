@@ -96,7 +96,12 @@ export default function Projects() {
               </div>
               <div className="product-image">
                 <div className="box-image">
-                  <img src={project.image} alt={`${project.title} mock`} className="img-product object-cover w-full h-full" />
+                  <Image 
+                    src={project.image} 
+                    alt={`${project.title} mock`} 
+                    fill
+                    className="img-product object-contain" 
+                  />
                 </div>
               </div>
             </div>

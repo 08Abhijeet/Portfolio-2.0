@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import "./Skills.css";
 
 const skillsData = [
@@ -72,8 +72,6 @@ icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original
 ];
 
 export default function Skills() {
-  const [tappedCard, setTappedCard] = useState<number | null>(null);
-
   return (
     <section className="skills-section py-16 px-3 md:mt-16" id="skills">
       <motion.div 
@@ -101,7 +99,7 @@ export default function Skills() {
               key={index}
             >
               <div className="skill-icon-wrapper">
-                <img src={skill.icon} alt={`${skill.title} icon`} />
+                <Image src={skill.icon} alt={`${skill.title} icon`} width={65} height={65} unoptimized />
                 <div className="skill-tooltip text-center">
                   <div className="font-poppins font-bold text-white tracking-widest uppercase mb-1 text-sm">{skill.title}</div>
                   <div className="tooltip-desc text-white/70">{skill.description}</div>
