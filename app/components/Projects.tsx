@@ -35,7 +35,7 @@ export default function Projects() {
       title: "InsightForge",
       technologies: ["Next.js", "FastAPI", "Python", "LangChain"],
       description: "An AI-powered analytics platform that transforms raw datasets into insights, visualizations, and business recommendations. Features an automated pipeline for data preprocessing and a modern frontend dashboard for non-technical users.",
-      link: "#",
+      link: "https://github.com/Chirag363/InsightForge.git",
       image: "/insightforge.png",
       icon: <IconChartBar size={90} className="text-cyan-400 drop-shadow-[0_0_15px_rgba(34,211,238,0.5)]" />,
     },
@@ -58,7 +58,7 @@ export default function Projects() {
   ];
 
   return (
-    <section id="projects" className="w-full py-12 sm:py-20 bg-transparent flex flex-col items-center px-4">
+    <section id="projects" className="w-full pt-10 pb-8 sm:pt-14 sm:pb-12 bg-transparent flex flex-col items-center px-4">
       <motion.div 
         initial={{ opacity: 0, scale: 0.95, y: 20 }}
         whileInView={{ opacity: 1, scale: 1, y: 0 }}
@@ -75,7 +75,7 @@ export default function Projects() {
         </h2>
       </motion.div>
 
-      <div className="w-full max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-24 sm:gap-16 pt-8 sm:pt-10 pb-16 sm:pb-0 justify-items-center">
+      <div className="w-full max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-24 sm:gap-12 pt-8 sm:pt-10 pb-8 sm:pb-0 justify-items-center">
         {projects.map((project, index) => (
           <div className="card" key={index}>
             <div className="container-image">

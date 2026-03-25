@@ -123,8 +123,8 @@
   }
 
   .scroller-track {
-    gap: 2.5rem;
-    animation: slide-right 20s linear infinite;
+    gap: 1.2rem;
+    animation: slide-right 12s linear infinite;
   }
 }
 
@@ -144,9 +144,9 @@
 
 .scroller-track {
   display: flex;
-  gap: 4.5rem;
+  gap: 2rem;
   width: max-content;
-  animation: slide-right 65s linear infinite;
+  animation: slide-right 28s linear infinite;
 }
 
 .scroller-container:hover .scroller-track {

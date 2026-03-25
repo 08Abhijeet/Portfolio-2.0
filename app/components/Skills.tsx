@@ -73,7 +73,7 @@ icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original
 
 export default function Skills() {
   return (
-    <section className="skills-section py-8 sm:py-16 px-3 md:mt-16" id="skills">
+    <section className="skills-section pt-10 pb-8 sm:pt-14 sm:pb-12 px-3" id="skills">
       <motion.div 
         initial={{ opacity: 0, scale: 0.95, y: 20 }}
         whileInView={{ opacity: 1, scale: 1, y: 0 }}

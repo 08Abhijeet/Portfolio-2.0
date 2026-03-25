@@ -43,7 +43,7 @@ export default function Experience() {
   ];
 
   return (
-    <section id="experience" className="w-full py-12 sm:py-24 flex flex-col items-center px-4 relative">
+    <section id="experience" className="w-full pt-10 pb-12 sm:pt-14 sm:pb-16 flex flex-col items-center px-4 relative">
       {/* ── Section Heading ── */}
       <motion.div 
         initial={{ opacity: 0, scale: 0.95, y: 20 }}
@@ -62,7 +62,7 @@ export default function Experience() {
       </motion.div>
 
       {/* ── Timeline Container ── */}
-      <div ref={containerRef} className="relative w-full max-w-5xl mx-auto flex flex-col gap-12 sm:gap-24">
+      <div ref={containerRef} className="relative w-full max-w-5xl mx-auto flex flex-col gap-10 sm:gap-16">
         
         {/* Background Track Line (dim) */}
         <div className="absolute left-[30px] sm:left-1/2 sm:-translate-x-1/2 top-0 bottom-0 w-[2px] bg-white/10 rounded-full" />
